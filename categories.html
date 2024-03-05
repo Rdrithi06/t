@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style1.css"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+           .dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.calorie
+{
+    background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-left: 28%;  
+}
+h2.heading
+    {
+        margin-left: 20%;
+        color: #0e6253;
+    }
+    
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+        </style>
+        
+    </head>
+    <body>
+        <div class="sidebar">
+            <h1 class="logo">EAT RIGHT</h1>
+            <div class="sidebar-menus">
+                <a href="home1.html"> <ion-icon name="storefront-outline"></ion-icon>Home</a>
+                <a href="login.html"> <ion-icon name="person-circle-outline"></ion-icon>Login</a>
+                <a href="signup.html"> <ion-icon name="person-add-outline"></ion-icon>Sign Up</a>
+                <a href="categories.html"> <ion-icon name="list-outline"></ion-icon>Select Category</a>
+                <a href="aboutus1.html"> <ion-icon name="people-outline"></ion-icon>About Us</a>
+            </div>
+            <div class="sidebar-logout">
+                <a href="home1.html"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-navbar">
+              <h2 class="heading">EAT RIGHT LIVE WELL</h2>
+     
+             <div class="profile">
+                <a class="cart" href="#"><ion-icon name="cart-outline"></ion-icon></a>
+              
+             </div>
+            </div>
+          
+            <div class="main-highlight">
+                <div class="main-header">
+                    <h2 class="main-title">Recommendations</h2>
+                    <div class="main-arrow">
+                        
+                    </div>
+                </div>
+                <div class="highlight-wrapper">
+                    <div class="highlight-card">
+                        <img class="highlight-img" src="r1.jpg">
+                        <div class="highlight-desc">
+                            <h4>Quick Cooking Oats</h4>
+                            <p>Rs.200</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <img class="highlight-img" src="r2.jpeg">
+                        <div class="highlight-desc">
+                            <h4>Veggie & Hummus Sandwich</h4>
+                            <p>Rs.250</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <img class="highlight-img" src="r4.jpeg">
+                        <div class="highlight-desc">
+                            <h4>Roasted Vegetable Lasagna</h4>
+                            <p>Rs.280</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <img class="highlight-img" src="r5.jpeg">
+                        <div class="highlight-desc">
+                            <h4>Bean Ball Sandwiches</h4>
+                            <p>Rs.280</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <img class="highlight-img" src="r3.jpg">
+                        <div class="highlight-desc">
+                            <h4>Smokey Peppers</h4>
+                            <p>Rs.300</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown" style="float:left;">
+                <button class="dropbtn">Health Conditions</button>
+                <div class="dropdown-content" style="left:0;">
+                  <a href="blood.html">Blood Pressure</a>
+                  <a href="diab.html">Diabetes</a>
+                  <a href="thyroid.html">Thyroid</a>
+                  <a href="acidity.html">Acidity</a>
+                  <a href="joint.html">Joint Pains</a>
+                </div>
+            </div>
+              
+              <div class="dropdown" style="float:right;">
+                <button class="dropbtn">Allergies</button>
+                <div class="dropdown-content">
+                  <a href="peanut.html">Peanuts</a>
+                  <a href="soy.html">Soy</a>
+                  <a href="milk.html">Milk</a>
+                  <a href="fish.html">Fish</a>
+                </div>
+              </div>
+              <a href="calorie.html"><button class="calorie">Calorie Counter</button></a>
+        </div> 
+        
+        
+          
+          
+         
+        
+        
+    <body>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+    </script>
+</html>

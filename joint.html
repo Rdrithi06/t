@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet2.css">
+  <style>.sidebar{
+    height: 100%;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2%;
+    background-color: #0e6253;
+    color: var(--whitecolor);
+}
+
+.sidebar-menus{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sidebar-menus a, .sidebar-logout a
+{
+    padding: 5% 8%;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar-menus a ion-icon, .sidebar-logout a ion-icon {
+    font-size: 20px;
+
+}
+
+.sidebar-menus a:hover, .sidebar-logout a:hover {
+    background-color: #ffc107;
+    border-radius: 50px;
+}
+.search
+    {
+        width: 60%;
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        background-color: var(--whitecolor);
+        border-radius: 20px;
+        float: left;
+    }
+    .search input{
+        width: 80%;
+        height: 100%;
+        padding: 20px;
+        border: none;
+        border-radius: 20px;
+    }
+    .search-btn {
+        background-color: #ffc107;
+        color: var(--whitecolor);
+        border: none;
+        border-radius: 20px;
+        width: 120px;
+        cursor: pointer;
+    }
+
+    .search:hover {
+        box-shadow: #ffc107;
+
+    }
+    .search-btn:hover
+    {
+        background-color: #0e6253;
+    }
+    .main-highlight{
+        margin: 3% 0;
+        padding: 2%;
+        background-color: #ffc107;
+        border-radius: 8px;
+        margin-left: 18%;
+    margin-right: auto;
+    margin-top: 2px;
+    }
+    
+    .main-header
+    {
+        display: flex;
+        width: 5%;
+        justify-content: space-between;
+        align-items: center;
+        height: 5px;
+        
+    }
+
+    .main-title
+    {
+        font-size: 20px;
+    }
+    .main-arrow
+    {
+        font-size: 24px;
+    }
+
+    .back, .next{
+        cursor: pointer;
+    }
+
+    .back:hover, .next:hover{
+        color: #0e6253;
+    }
+    .highlight-wrapper{
+        width: 100%;
+        display: flex;
+        padding: 1%;
+        border-radius: 8px;
+        gap: 1.5rem;
+        overflow-x: hidden;
+    }
+    .highlight-card{
+        display: flex;
+        flex-direction: row;
+        min-width: 200px;
+        width: 80%;
+        height: 100%;
+        gap: 1rem;
+        border-radius: 8px;
+        padding: 1%;
+        background-color: var(--greycolor);
+        cursor: pointer;
+    }
+    .highlight-img{
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        object-fit: cover;
+        object-position: centers;
+    }
+
+    .highlight-desc h4{
+        color: #0e6253;
+    }
+    .highlight-desc p{
+        color: var(--blackcolor);
+        font-size: 13px;
+    }
+    
+    .profile
+    {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-top: 2px;
+    }
+    
+    .user
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--blackcolor);
+      font-size: 20px;
+      color: #222;
+      text-decoration: none;
+      padding: 0 5px;
+      height: 40px;
+      border-radius: 50%;  
+      padding-top: 2px;
+    }
+
+    .user:hover
+    {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    h2.heading
+    {
+        margin-left: 20%;
+        color: #0e6253;
+    }
+</style>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+</head>
+<body>
+    
+  <header>
+    <div class="nav">
+
+      
+        <h2 class="heading">EAT RIGHT LIVE WELL</h2>
+
+      <div class="box">
+        <div class="cart-count">0</div>
+        <ion-icon name="cart"  id="cart-icon" ></ion-icon>
+      </div>
+
+      <div class="cart">
+        <div class="cart-title">Cart Items</div>
+        <div class="cart-content"></div>
+        
+        
+        <div class="sidebar">
+            <h1 class="logo">EAT RIGHT</h1>
+            <div class="sidebar-menus">
+                <a href="home1.html"> <ion-icon name="storefront-outline"></ion-icon>Home</a>
+                <a href="login.html"> <ion-icon name="person-circle-outline"></ion-icon>Login</a>
+                <a href="signup.html"> <ion-icon name="person-add-outline"></ion-icon>Sign Up</a>
+                <a href="categories.html"> <ion-icon name="list-outline"></ion-icon>Select Category</a>
+                <a href="aboutus1.html"> <ion-icon name="people-outline"></ion-icon>About Us</a>
+            </div>
+            <div class="sidebar-logout">
+                <a href="home1.html"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
+            </div>
+        </div>
+        
+      <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">Rs.0</div>
+      </div>
+
+      <a href="placeorder.html"><button class="btn-buy">Place Order</button></a>
+
+
+      <ion-icon name="close" id="cart-close"></ion-icon>
+
+      </div>
+      <!--div class="profile"-->
+        
+        <!--/div--->
+    </div>
+    <div class="main-highlight">
+        <div class="main-header">
+            <h2 class="main-title">Recommendations</h2>
+            <!---div class="main-arrow">
+                <ion-icon class="back" name="chevron-back-circle-outline"></ion-icon>
+                <ion-icon class="back" name="chevron-forward-circle-outline"></ion-icon>
+            </div--->
+        </div>
+        <div class="highlight-wrapper">
+            <div class="highlight-card">
+                <img class="highlight-img" src="r1.jpg">
+                <div class="highlight-desc">
+                    <h4>Quick Cooking Oats</h4>
+                    <p>Rs.200</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img class="highlight-img" src="r2.jpeg">
+                <div class="highlight-desc">
+                    <h4>Veggie & Hummus Sandwich
+                    </h4>
+                    
+                    <p>Rs.250</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img class="highlight-img" src="r4.jpeg">
+                <div class="highlight-desc">
+                    <h4>Roasted Vegetable Lasagna
+                    </h4>
+                    <p>Rs.280</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img class="highlight-img" src="r5.jpeg">
+                <div class="highlight-desc">
+                    <h4>Bean Ball Sandwiches
+                    </h4>
+                    <p>Rs.280</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img class="highlight-img" src="r3.jpg">
+                <div class="highlight-desc">
+                    <h4>Smokey Peppers</h4>
+                    <p>Rs.300</p>
+                </div>
+            </div>
+        </div>
+    </div>  
+  </header>
+  
+  <div class="container">
+
+    
+    <div class="shop-content">
+
+
+      <div class="food-box">
+        <div class="pic">
+          <img src="r43.jpg" class="food-img">
+        </div>
+        <h2 class="food-title">Bean Ball Sandwiches
+        </h2>
+        <p>
+            Everyone enjoys a good sub, yet you may think you have to give this staple up when you go vegan. Not true! This Bean Ball Sandwiches recipe by Wholesome LLC is the perfect vegan alternative that recreates that meaty texture with pain-fighting beans.
+            
+        </p>
+        <span class="food-price">Rs.280</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon---->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+
+    <div class="food-box">
+        <div class="pic"><img src="r44.jpg" class="food-img"></div>
+        <h2 class="food-title">Wholegrain Flaxseed and Sesame Crackers
+        </h2>
+        <p> 
+            Crackers are one of those great go-to snacks that also happen to be one of the most processed foods on the grocery store shelf. Of course, this doesn’t mean you have to give them up, but try your hand at a homemade version. This Wholegrain Flaxseed and Sesame Crackers recipe by Namita Tiwari is super easy and loaded with anti-inflammatory omega-3 fatty acid-rich flaxseed!
+            
+        </p>
+        <span class="food-price">Rs.210</span>
+        <!--ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+      <div class="food-box">
+        <div class="pic"><img src="r45.jpg" class="food-img"></div>
+        <h2 class="food-title">Simple Homemade Pumpkin Seed Butter</h2>
+        <p>
+            
+            Looking for yummy ways to sneak healthy fat-filled and anti-inflammatory seeds into your diet? It doesn’t get easier or tastier than this Simple Homemade Pumpkin Seed Butter recipe by Nikki Stokes! Spread on a piece of wholegrain toast for breakfast, make classic aunts on a log as a snack, or even substitute for nut butter to make plant-based creams and sauces.
+            
+            </p>
+        <span class="food-price">Rs.130</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+      <div class="food-box">
+        <div class="pic"><img src="r46.jpg" class="food-img"></div>
+        <h2 class="food-title">Lemony Berry Salad</h2>
+        <p>
+            
+            colorful fruit adds not only beauty but also pain-fighting properties to your diet. But, maybe you’re also taking care of your sugar consumption and fruit contains fructose. Focus your fruit intake on berries! This Lemony Berry Salad recipe by Jesse Lane Lee is rich in color and low fructose, antioxidant-rich berries.
+            
+            </p>
+        <span class="food-price">Rs.150</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+      <div class="food-box">
+        <div class="pic"><img src="r47.jpg" class="food-img"></div>
+        <h2 class="food-title">Olive Oil and Orange Cookies
+        </h2>
+        <p>
+            Extra virgin olive oil is an incredibly diverse ingredient — used raw, splashed on the grill, sprinkled for roasting, and as a healthier, plant-based baking substitute such as in these Olive Oil and Orange Cookies recipe by Angelina Papanikolaou. Enjoy a treat while also getting a dose of anti-inflammatory healthy fats!
+
+            </p>
+        <span class="food-price">Rs.140</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+      <div class="food-box">
+        <div class="pic"><img src="r48.jpg" class="food-img"></div>
+        <h2 class="food-title">White Bean and Oat Omelet With Creamy Mushroom Filling
+        </h2>
+        <p>
+            This White Bean and Oat Omelet With Creamy Mushroom Filling recipe by Kirsten Kaminski is a stellar example of how diverse plant-based ingredients are when it comes to recreating animal product staples. nutrient-dense and pain-fighting, start your winter days out with this omelet!
+            </p>
+        <span class="food-price">Rs.200</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+  
+      <div class="food-box">
+        <div class="pic"><img src="r49.jpg" class="food-img"></div>
+        <h2 class="food-title">Lentil Masala With Curry Cauliflower
+        </h2>
+        <p>
+            I admit that even though lentils are a great source of plant-based protein and anti-inflammatory compounds, they’re a bit bland on the flavor side. Spice things up with this flavor-filled Lentil Masala With Curry Cauliflower recipe by Lena Novak!
+
+
+            </p>
+        <span class="food-price">Rs.320</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+  
+      <div class="food-box">
+        <div class="pic"><img src="r50.jpg" class="food-img"></div>
+        <h2 class="food-title"> Earthy Beetroot Soup
+        </h2>
+        <p>
+            root veggie-based Earthy Beetroot Soup recipe by Mati Michael.
+
+            
+            
+            </p>
+        <span class="food-price">Rs.230</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+      <div class="food-box">
+        <div class="pic"><img src="r51.jpg" class="food-img"></div>
+        <h2 class="food-title">Trail Mix Energy Bites
+        </h2>
+        <p>
+            
+ 
+            These Trail Mix Energy Bites by Kat Condon are the ultimate achy joint-friendly snack on the go. Super simple to make and filled with all the plant-based goodies 
+            you could desire including gluten-free oats and quinoa, omega-3 fatty acid-rich flaxseed, and inflammation-fighting pumpkin seeds.
+
+            </p>
+        <span class="food-price">Rs.170</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+
+
+
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

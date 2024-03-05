@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet2.css">
+  <style>.sidebar{
+    height: 100%;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2%;
+    background-color: #0e6253;
+    color: var(--whitecolor);
+}
+
+.sidebar-menus{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sidebar-menus a, .sidebar-logout a
+{
+    padding: 5% 8%;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar-menus a ion-icon, .sidebar-logout a ion-icon {
+    font-size: 20px;
+
+}
+
+.sidebar-menus a:hover, .sidebar-logout a:hover {
+    background-color: #ffc107;
+    border-radius: 50px;
+}
+.search
+    {
+        width: 60%;
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        background-color: var(--whitecolor);
+        border-radius: 20px;
+        float: left;
+    }
+    .search input{
+        width: 80%;
+        height: 100%;
+        padding: 20px;
+        border: none;
+        border-radius: 20px;
+    }
+    .search-btn {
+        background-color: #ffc107;
+        color: var(--whitecolor);
+        border: none;
+        border-radius: 20px;
+        width: 120px;
+        cursor: pointer;
+    }
+
+    .search:hover {
+        box-shadow: #ffc107;
+
+    }
+    .search-btn:hover
+    {
+        background-color: #0e6253;
+    }
+    .main-highlight{
+        margin: 3% 0;
+        padding: 2%;
+        background-color: #ffc107;
+        border-radius: 8px;
+        margin-left: 18%;
+    margin-right: auto;
+    margin-top: 2px;
+    }
+    
+    .main-header
+    {
+        display: flex;
+        width: 5%;
+        justify-content: space-between;
+        align-items: center;
+        height: 5px;
+        
+    }
+
+    .main-title
+    {
+        font-size: 20px;
+    }
+    .main-arrow
+    {
+        font-size: 24px;
+    }
+
+    .back, .next{
+        cursor: pointer;
+    }
+
+    .back:hover, .next:hover{
+        color: #0e6253;
+    }
+    .highlight-wrapper{
+        width: 100%;
+        display: flex;
+        padding: 1%;
+        border-radius: 8px;
+        gap: 1.5rem;
+        overflow-x: hidden;
+    }
+    .highlight-card{
+        display: flex;
+        flex-direction: row;
+        min-width: 200px;
+        width: 80%;
+        height: 100%;
+        gap: 1rem;
+        border-radius: 8px;
+        padding: 1%;
+        background-color: var(--greycolor);
+        cursor: pointer;
+    }
+    .highlight-img{
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        object-fit: cover;
+        object-position: centers;
+    }
+
+    .highlight-desc h4{
+        color: #0e6253;
+    }
+    .highlight-desc p{
+        color: var(--blackcolor);
+        font-size: 13px;
+    }
+    
+    .profile
+    {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-top: 2px;
+    }
+    
+    .user
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--blackcolor);
+      font-size: 20px;
+      color: #222;
+      text-decoration: none;
+      padding: 0 5px;
+      height: 40px;
+      border-radius: 50%;  
+      padding-top: 2px;
+    }
+
+    .user:hover
+    {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+</style>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+</head>
+<body>
+    
+  <header>
+    <div class="nav">
+
+      <a href="#" class="logo"></a>
+      <div class="search">
+        <input type="text" placeholder="what you want to eat?">
+        <button class="search-btn">Search</button>
+     </div>
+    
+
+      <div class="box">
+        <div class="cart-count">0</div>
+        <ion-icon name="cart"  id="cart-icon" ></ion-icon>
+      </div>
+
+      <div class="cart">
+        <div class="cart-title">Cart Items</div>
+        <div class="cart-content"></div>
+        
+        
+        <div class="sidebar">
+            <h1 class="logo">EAT RIGHT</h1>
+            <div class="sidebar-menus">
+                <a href="#"> <ion-icon name="storefront-outline"></ion-icon>Home</a>
+                <a href="login.html"> <ion-icon name="person-circle-outline"></ion-icon>Login</a>
+                <a href="signup.html"> <ion-icon name="person-add-outline"></ion-icon>Sign Up</a>
+                <a href="#"> <ion-icon name="list-outline"></ion-icon>Select Category</a>
+                <a href="#"> <ion-icon name="people-outline"></ion-icon>About Us</a>
+            </div>
+            <div class="sidebar-logout">
+                <a href="#"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
+            </div>
+        </div>
+        
+      <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">Rs.0</div>
+      </div>
+
+      <button class="btn-buy">Place Order</button>
+
+      <ion-icon name="close" id="cart-close"></ion-icon>
+
+      </div>
+      <!--div class="profile"-->
+        <a class="user" href="#"><ion-icon name="person-outline"></ion-icon></a>
+        <!--/div--->
+    </div>
+    <div class="main-highlight">
+        <div class="main-header">
+            <h2 class="main-title">Recommendations</h2>
+            <!---div class="main-arrow">
+                <ion-icon class="back" name="chevron-back-circle-outline"></ion-icon>
+                <ion-icon class="back" name="chevron-forward-circle-outline"></ion-icon>
+            </div--->
+        </div>
+        <div class="highlight-wrapper">
+            <div class="highlight-card">
+                <img class="highlight-img" src="r1.jpg">
+                <div class="highlight-desc">
+                    <h4>Quick cooking oats</h4>
+                    <p>Rs.150</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img class="highlight-img" src="r2.jpeg">
+                <div class="highlight-desc">
+                    <h4>Veggie & Hummus Sandwich
+                    </h4>
+                    
+                    <p>Rs.200</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img class="highlight-img" src="r4.jpeg">
+                <div class="highlight-desc">
+                    <h4>Roasted Vegetable Lasagna
+                    </h4>
+                    <p>Rs.250</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img class="highlight-img" src="r5.jpeg">
+                <div class="highlight-desc">
+                    <h4>Bean Ball Sandwiches
+                    </h4>
+                    <p>Rs.280</p>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <img class="highlight-img" src="r3.jpg">
+                <div class="highlight-desc">
+                    <h4>Smoky Stuffed Peppers</h4>
+                    <p>Rs.380</p>
+                </div>
+            </div>
+        </div>
+    </div>  
+  </header>
+  
+  <div class="container">
+
+    
+    <div class="shop-content">
+
+
+      <div class="food-box">
+        <div class="pic">
+          <img src="r59.jpg" class="food-img">
+        </div>
+        <h2 class="food-title">Black Bean Enchiladas
+        </h2>
+        <p> 
+            
+with poblano pepperAn enchilada is a tortilla rolled around a filling, covered with sauce, and baked
+
+           
+            
+        </p>
+        <span class="food-price">Rs.40</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon---->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+
+    <div class="food-box">
+        <div class="pic"><img src="r56.jpg" class="food-img"></div>
+        <h2 class="food-title"> Buttermilk-Ranch Chicken
+        </h2>
+        <p>
+            Buttermilk-Ranch Chicken
+with mashed carrot and green beansAn enterprising rancher in Santa Barbara, California served a seasoned buttermilk 
+
+            
+            
+
+        </p>
+        <span class="food-price">Rs.65</span>
+        <!--ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+      <div class="food-box">
+        <div class="pic"><img src="r57.jpg" class="food-img"></div>
+        <h2 class="food-title"> Crispy Onion Chicken</h2>
+        <p>
+           
+            
+            with creamy mushroom sauce and green beansThink “crispy chicken” and your mind might go to fingers, tenders, or fried chicken sold 
+            
+
+
+            
+            </p>
+        <span class="food-price">Rs.80</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+      <div class="food-box">
+        <div class="pic"><img src="r6.jpg" class="food-img"></div>
+        <h2 class="food-title">Blue Cheese and Smoked Almond Bone-In Pork Chop</h2>
+        <p>
+            
+            
+            with honey-roasted carrots and chivesSimplvgsfbshxgajsmjshxue flavors that all work in tasty harmony? Yes, please! A tender bone-in pork chop
+            
+
+</html>
+
+            </p>
+        <span class="food-price">Rs.55</span>
+        <!---ion-icon name="cart" class="add-cart"></ion-icon--->
+        <button class="add-cart">Add To Cart</button>
+      </div>
+  
+       
+  
+
+
+
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
